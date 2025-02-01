@@ -1,6 +1,5 @@
 package com.example.kotlinapp.model
 
-import android.location.Address
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -11,7 +10,7 @@ data class DoctorsModel(
     val Name:String="",
     val Picture:String="",
     val Special:String="",
-    val Exprience:Int=0,
+    val Expriense:Int=0,
     val Cost:String="",
     val Date:String="",
     val Time:String="",
@@ -48,7 +47,7 @@ data class DoctorsModel(
         parcel.writeString(Name)
         parcel.writeString(Picture)
         parcel.writeString(Special)
-        parcel.writeInt(Exprience)
+        parcel.writeInt(Expriense)
         parcel.writeString(Cost)
         parcel.writeString(Date)
         parcel.writeString(Time)

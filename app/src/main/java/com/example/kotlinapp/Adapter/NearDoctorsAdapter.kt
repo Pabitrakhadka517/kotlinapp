@@ -1,6 +1,7 @@
 package com.example.kotlinapp.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.icu.text.Transliterator.Position
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.kotlinapp.databinding.ViewholderNearbyDoctorBinding
 import com.example.kotlinapp.model.DoctorsModel
+import com.example.kotlinapp.ui.activity.DetailActivity
 
 class NearDoctorsAdapter(val items:MutableList<DoctorsModel>):RecyclerView.Adapter<NearDoctorsAdapter.Viewholder>(){
     private var context:Context?=null
@@ -26,7 +28,8 @@ class NearDoctorsAdapter(val items:MutableList<DoctorsModel>):RecyclerView.Adapt
         return Viewholder(
             ViewholderNearbyDoctorBinding.inflate(
                 LayoutInflater.from(context),
-                parent,false
+                parent,
+                false
             )
         )
     }
@@ -41,11 +44,14 @@ class NearDoctorsAdapter(val items:MutableList<DoctorsModel>):RecyclerView.Adapt
             .apply{ RequestOptions().transform(CenterCrop()) }
             .into(holder.binding.img)
 
-
+        holder.binding.root.setOnClickListener{
+            val intent=Intent(context,DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            context?.startActivity(intent)
+        }
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+
+    override fun getItemCount(): Int =items.size
 
 }
