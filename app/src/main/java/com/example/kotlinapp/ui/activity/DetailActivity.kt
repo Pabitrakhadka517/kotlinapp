@@ -66,6 +66,8 @@ class DetailActivity : BaseActivity() {
                 startActivity(Intent.createChooser(intent,"Choose one"))
             }
 
+
+
             Glide.with(this@DetailActivity)
                 .load(item.Picture)
                 .into(imgPart)

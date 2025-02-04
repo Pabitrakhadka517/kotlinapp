@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotlinapp"
         tools:targetApi="31">
+
+
         <activity
             android:name=".ui.activity.SignUpActivity"
             android:exported="true">
@@ -30,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.activity.DetailActivity"
             android:exported="true" />
@@ -55,7 +56,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
