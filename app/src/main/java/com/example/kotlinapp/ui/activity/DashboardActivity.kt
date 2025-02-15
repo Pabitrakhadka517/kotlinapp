@@ -44,4 +44,3 @@ class DashboardActivity : BaseActivity() {
         }
     }
 }
-// Dashboard Page
