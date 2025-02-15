@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
 
+//BookAppointment Page
 class BookAppointmentActivity : AppCompatActivity() {
 
     private lateinit var doctorName: TextView
