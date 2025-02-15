@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
 
-//BookAppointment Page
 class BookAppointmentActivity : AppCompatActivity() {
 
     private lateinit var doctorName: TextView
@@ -78,7 +77,7 @@ class BookAppointmentActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
-        // Set up Time Picker
+        // Set up Time Picker for time
         timePickerButton.setOnClickListener {
             val calendar = Calendar.getInstance()
             val timePickerDialog = TimePickerDialog(
