@@ -19,11 +19,12 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         firebaseAuth = FirebaseAuth.getInstance()
+
         binding.textView.setOnClickListener {
             val intent = Intent(this, SplashActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Redirecting to Sign Up", Toast.LENGTH_SHORT).show()
         }
 
         binding.button.setOnClickListener {
@@ -31,19 +32,19 @@ class SignInActivity : AppCompatActivity() {
             val pass = binding.passET.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
+                Toast.makeText(this, "Signing in...", Toast.LENGTH_SHORT).show()
 
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, SplashActivity::class.java)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                        Toast.makeText(this, "Error: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
         }
     }

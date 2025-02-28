@@ -23,7 +23,9 @@ class SignUpActivity : AppCompatActivity() {
         binding.textView.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Redirecting to Sign In", Toast.LENGTH_SHORT).show()
         }
+
         binding.button.setOnClickListener {
             val email = binding.emailEt.text.toString()
             val pass = binding.passET.text.toString()
@@ -31,22 +33,22 @@ class SignUpActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
+                    Toast.makeText(this, "Creating Account...", Toast.LENGTH_SHORT).show()
 
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
+                            Toast.makeText(this, "Account Created Successfully!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, SignInActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
+                            Toast.makeText(this, "Error: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
-                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
             }
         }
     }
