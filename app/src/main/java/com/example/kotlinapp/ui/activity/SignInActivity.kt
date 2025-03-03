@@ -8,7 +8,7 @@ import com.example.kotlinapp.MainActivity
 import com.example.kotlinapp.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 
-// SignIn Page
+
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
@@ -61,4 +61,3 @@ class SignInActivity : AppCompatActivity() {
 
 }
 
-//This is my Login Page
