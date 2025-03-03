@@ -59,6 +59,10 @@ dependencies {
 
     implementation("com.google.firebase:firebase-auth:21.0.1")
 
+    testImplementation("org.mockito:mockito-core:5.6.0")
+    testImplementation("org.mockito:mockito-inline:3.12.4")
+    androidTestImplementation("org.mockito:mockito-kotlin:3.2.0")
+
 
 
 
