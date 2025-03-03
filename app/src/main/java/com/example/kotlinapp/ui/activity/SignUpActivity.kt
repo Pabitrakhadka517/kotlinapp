@@ -54,4 +54,3 @@ class SignUpActivity : AppCompatActivity() {
     }
 }
 
-//This is Signup page
